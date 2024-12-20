@@ -44,5 +44,6 @@ class kamailio:
         else:
             KSR.info("===== Destination not found in location table =====\n")
             KSR.sl.send_reply(404, "User Not Found")
-            return 1
+            return 1 
 #ring ring
+#fala baixo
