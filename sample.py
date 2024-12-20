@@ -47,3 +47,5 @@ class kamailio:
             return 1 
 #ring ring
 #fala baixo
+
+#xe wi
