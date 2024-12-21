@@ -4,6 +4,7 @@ import Router.Logger as Logger
 import KSR as KSR
 from concurrent import futures
 import logging
+import re
 
 import grpc
 
@@ -47,41 +48,30 @@ class kamailio:
         
         if KSR.is_MESSAGE():
             val = KSR.pv.get("$ru")
-            msg = KSR.pv.get("$rb")
+            msg = KSR.pv.get("$rb").strip()
             usr = KSR.pv.get("$fu")
             KSR.info("Destinatário: " + val + ", Mensagem: " + msg + ", Utilizador: " + usr)
+            KSR.info(msg == '0000')
             if val == "sip:validar@acme.pt" and msg == '0000':
                 KSR.sl.send_reply(200, "PIN válido")
                 KSR.info("PIN válido")
             else:
-                KSR.sl.send_reply(403, "Forbidden - PIN inválido")           
-        
+                KSR.sl.send_reply(403, "Forbidden - PIN inválido")
+                
         # Realiza chamadas entre utilizadores registados
         
-        #Nao está tudo certo
-        #Um utilizador nao registado consegue fazer chamadas para um registado
-        
-        if KSR.registrar.lookup("location") == 1:
+        if KSR.is_INVITE() and KSR.registrar.lookup("location") == 1:
             dominio = KSR.pv.get("$fd")
-            
-            if not dominio:
-                KSR.err("===== Domain not found or invalid in destination =====\n")
-                KSR.sl.send_reply(500, "Internal Server Error")
-                return 1
-    
             if dominio != "acme.pt":
                 KSR.info("===== Blocked because user belongs to external domain [%s] =====\n" % dominio)
                 return 1
-            
             KSR.info("=== Destination found. Fowarding the call [%s] =====\n" % dominio)
-            if not KSR.tm.t_relay():
-                KSR.err("===== Failed to forward the call to [%s] =====\n" % dominio)
-                KSR.sl.send_reply(500, "Internal Server Error")
-                return 1
+            KSR.tm.t_relay()
+            return 1  
         else:
             KSR.info("===== Destination not found in location table =====\n")
             KSR.sl.send_reply(404, "User Not Found")
-            return 1
+            
         
         
         #Os utilizadores pretendem que seja feito o reencaminhamento avançado das suas chamadas cujo URI destino contenha o domínio acme.pt
