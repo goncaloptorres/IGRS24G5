@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<urn:URNspec xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:grl="http:///grl.ecore" xmlns:urn="http:///urn.ecore" name="URNspec" author="igrs" created="December 21, 2024 at 4:44:38 PM WET" modified="December 21, 2024 at 7:23:03 PM WET" specVersion="7" urnVersion="1.27" nextGlobalID="129">
+<urn:URNspec xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:grl="http:///grl.ecore" xmlns:urn="http:///urn.ecore" name="URNspec" author="igrs" created="December 21, 2024 at 4:44:38 PM WET" modified="December 21, 2024 at 9:13:59 PM WET" specVersion="9" urnVersion="1.27" nextGlobalID="129">
   <ucmspec>
     <scenarioGroups name="ScenarioGroup5" id="5">
       <scenarios name="ScenarioDef6" id="6"/>
@@ -27,7 +27,7 @@
     <intElements name="Monitorizar via gMNI" id="71" linksDest="113" type="Task" refs="72"/>
     <intElements name="Acompanhar os KPIs" id="73" linksDest="101 106" linksSrc="112 113 128" type="Task" refs="74"/>
     <intElements name="Validar e gerir o PIN" id="75" linksSrc="125" type="Task" refs="76"/>
-    <intElements name="Autenticaaao com o dominio acme.pt" id="77" linksDest="105" linksSrc="126" type="Task" refs="78"/>
+    <intElements name="Autenticacao com o dominio acme.pt" id="77" linksDest="105" linksSrc="126" type="Task" refs="78"/>
     <intElements name="Servidor SIP" id="81" linksSrc="98 99 100 101 102 103" type="Ressource" refs="82"/>
     <intElements name="Terminal SIP" id="83" linksDest="97" linksSrc="93 94 96" type="Ressource" refs="84"/>
     <intElements name="Processar os Registos" id="87" linksDest="103" linksSrc="104 105 121" type="Task" refs="88"/>
@@ -85,8 +85,8 @@
         <metadata name="_width" value="110"/>
       </nodes>
       <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef30" id="30" x="298" y="227" contRef="16" succ="//@urndef/@specDiagrams.0/@connections.4" pred="//@urndef/@specDiagrams.0/@connections.3" def="29">
-        <metadata name="_height" value="50"/>
-        <metadata name="_width" value="110"/>
+        <metadata name="_height" value="39"/>
+        <metadata name="_width" value="113"/>
       </nodes>
       <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef32" id="32" x="421" y="619" contRef="20" pred="//@urndef/@specDiagrams.0/@connections.30" def="31">
         <metadata name="_height" value="50"/>
@@ -100,7 +100,7 @@
         <metadata name="_height" value="50"/>
         <metadata name="_width" value="110"/>
       </nodes>
-      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef40" id="40" x="31" y="545" contRef="20" pred="//@urndef/@specDiagrams.0/@connections.28 //@urndef/@specDiagrams.0/@connections.29" def="39">
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef40" id="40" x="26" y="572" contRef="20" pred="//@urndef/@specDiagrams.0/@connections.28 //@urndef/@specDiagrams.0/@connections.29" def="39">
         <metadata name="_height" value="50"/>
         <metadata name="_width" value="110"/>
       </nodes>
@@ -156,9 +156,9 @@
         <metadata name="_height" value="50"/>
         <metadata name="_width" value="110"/>
       </nodes>
-      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef76" id="76" x="138" y="648" contRef="20" succ="//@urndef/@specDiagrams.0/@connections.28" def="75">
-        <metadata name="_height" value="32"/>
-        <metadata name="_width" value="112"/>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef76" id="76" x="169" y="658" contRef="20" succ="//@urndef/@specDiagrams.0/@connections.28" def="75">
+        <metadata name="_height" value="47"/>
+        <metadata name="_width" value="131"/>
       </nodes>
       <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef78" id="78" x="182" y="575" contRef="20" succ="//@urndef/@specDiagrams.0/@connections.11 //@urndef/@specDiagrams.0/@connections.29" def="77">
         <metadata name="_height" value="50"/>
