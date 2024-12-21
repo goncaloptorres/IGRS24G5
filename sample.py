@@ -31,6 +31,9 @@ class kamailio:
     # SIP request routing
     # -- equivalent of request_route{}
     def ksr_request_route(self, msg):
+        
+        # Regista Utilizadores com domínio "acme.pt"
+        
         endereco = KSR.pv.get("$ru")
         KSR.info("===== request - from kamailio python script\n")
         KSR.info("===== method [%s] r-uri [%s]\n" % (KSR.pv.get("$rm"),KSR.pv.get("$ru")))
@@ -40,9 +43,25 @@ class kamailio:
         else:
             KSR.info("===== Comparação Falhou: Endereco [%s], Esperado [sip:acme.pt] =====\n" % endereco)
         
+        # Valida utilizadores com PIN
+        
+        if KSR.is_MESSAGE():
+            val = KSR.pv.get("$ru")
+            msg = KSR.pv.get("$rb")
+            usr = KSR.pv.get("$fu")
+            KSR.info("Destinatário: " + val + ", Mensagem: " + msg + ", Utilizador: " + usr)
+            if val == "sip:validar@acme.pt" and msg == '0000':
+                KSR.sl.send_reply(200, "PIN válido")
+                KSR.info("PIN válido")
+            else:
+                KSR.sl.send_reply(403, "Forbidden - PIN inválido")
+                
+        
+        # Realiza chamadas entre utilizadores registados
+        
         if KSR.registrar.lookup("location") == 1:
             dominio = KSR.pv.get("$fd")
-            if dominio != "sip:acme.pt":
+            if dominio != "acme.pt":
                 KSR.info("===== Blocked because user belongs to external domain [%s] =====\n" % dominio)
                 return 1
             KSR.info("=== Destination found. Fowarding the call [%s] =====\n" % dominio)
@@ -51,4 +70,4 @@ class kamailio:
         else:
             KSR.info("===== Destination not found in location table =====\n")
             KSR.sl.send_reply(404, "User Not Found")
-            return 1
+            
