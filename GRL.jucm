@@ -6,15 +6,15 @@
     </scenarioGroups>
   </ucmspec>
   <grlspec>
-    <intElements name="Participar em conferências" id="25" linksDest="93" linksSrc="124" type="Goal" refs="26"/>
+    <intElements name="Participar em conferï¿½ncias" id="25" linksDest="93" linksSrc="124" type="Goal" refs="26"/>
     <intElements name="Fazer chamadas" id="27" linksDest="94" linksSrc="123" type="Goal" refs="28"/>
     <intElements name="Usar o PBX" id="29" linksDest="98" linksSrc="97" type="Goal" refs="30"/>
     <intElements name="Monitorizar o Desempenho" id="31" linksDest="128" type="Goal" refs="32"/>
-    <intElements name="Fornecer o serviço PBX2.0" id="33" linksDest="119 120 121" linksSrc="106" type="Goal" refs="34"/>
-    <intElements name="Facilitar a integração" id="37" linksDest="122 123 124" refs="38"/>
-    <intElements name="Garantir Segurança" id="39" linksDest="125 126" refs="40"/>
+    <intElements name="Fornecer o serviï¿½o PBX2.0" id="33" linksDest="119 120 121" linksSrc="106" type="Goal" refs="34"/>
+    <intElements name="Facilitar a integraï¿½ï¿½o" id="37" linksDest="122 123 124" refs="38"/>
+    <intElements name="Garantir Seguranï¿½a" id="39" linksDest="125 126" refs="40"/>
     <intElements name="Registar Utilizadores" id="43" linksDest="96 104" linksSrc="122" type="Task" refs="44"/>
-    <intElements name="Gerir as Conferências" id="45" linksDest="99" linksSrc="119" type="Task" refs="46"/>
+    <intElements name="Gerir as Conferï¿½ncias" id="45" linksDest="99" linksSrc="119" type="Task" refs="46"/>
     <intElements name="Encaminhar chamadas" id="47" linksDest="100" linksSrc="108 109 110 111 120" type="Task" refs="48"/>
     <intElements name="bloquear as chamadas de dominios externos" id="51" linksDest="108" type="Task" refs="52"/>
     <intElements name="encaminhar para a conferencia" id="53" linksDest="109 115 116" type="Task" refs="54"/>
@@ -22,17 +22,17 @@
     <intElements name="encaminhar chamada normal" id="57" linksDest="111" type="Task" refs="58"/>
     <intElements name="Servidor de Anuncios Conferencia" id="61" linksSrc="115" type="Ressource" refs="62"/>
     <intElements name="Servidor de Anuncios ocupado" id="63" linksSrc="117" type="Ressource" refs="64"/>
-    <intElements name="Servidor de conferências" id="65" linksSrc="116" type="Ressource" refs="66"/>
+    <intElements name="Servidor de conferï¿½ncias" id="65" linksSrc="116" type="Ressource" refs="66"/>
     <intElements name="Consulta via SIP" id="69" linksDest="102 112" type="Task" refs="70"/>
     <intElements name="Monitorizar via gMNI" id="71" linksDest="113" type="Task" refs="72"/>
     <intElements name="Acompanhar os KPIs" id="73" linksDest="101 106" linksSrc="112 113 128" type="Task" refs="74"/>
     <intElements name="Validar e gerir o PIN" id="75" linksSrc="125" type="Task" refs="76"/>
-    <intElements name="Autenticaçao com o dominio acme.pt" id="77" linksDest="105" linksSrc="126" type="Task" refs="78"/>
+    <intElements name="Autenticaï¿½ao com o dominio acme.pt" id="77" linksDest="105" linksSrc="126" type="Task" refs="78"/>
     <intElements name="Servidor SIP" id="81" linksSrc="98 99 100 101 102 103" type="Ressource" refs="82"/>
     <intElements name="Terminal SIP" id="83" linksDest="97" linksSrc="93 94 96" type="Ressource" refs="84"/>
     <intElements name="Processar os Registos" id="87" linksDest="103" linksSrc="104 105 121" type="Task" refs="88"/>
-    <actors name="Funcionário" id="15" contRefs="16"/>
-    <actors name="Actor17" id="17" contRefs="18"/>
+    <actors name="Funcionï¿½rio" id="15" contRefs="16"/>
+    <actors name="Operador" id="17" contRefs="18"/>
     <actors name="Empresa" id="19" contRefs="20"/>
     <links xsi:type="grl:Dependency" name="Dependency93" id="93" refs="//@urndef/@specDiagrams.0/@connections.0" dest="25" src="83"/>
     <links xsi:type="grl:Dependency" name="Dependency94" id="94" refs="//@urndef/@specDiagrams.0/@connections.1" dest="27" src="83"/>
