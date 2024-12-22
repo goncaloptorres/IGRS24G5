@@ -5,8 +5,6 @@ from concurrent import futures
 import logging
 import grpc
 
-conferencia = list()
-
 def dumpObj(obj):
     for attr in dir(obj):
         # KSR.info("obj.%s = %s\n" % (attr, getattr(obj, attr)));
@@ -61,26 +59,25 @@ class kamailio:
         # Realiza chamadas entre utilizadores registados
         
         if KSR.is_INVITE():
+            test = KSR.pv.get("$td")
             KSR.info("Destino: " + (KSR.pv.get("$tu")))
-            
-            if KSR.pv.get("$tu") == "sip:conferencia@acme.pt":
-                KSR.info("ENTREI")
-                KSR.pv.sets("$ru", "sip:conferencia@127.0.0.1:5090")
-                KSR.rr.record_route()
-                KSR.tm.t_relay()
-                return 1
-                    
-            if KSR.registrar.lookup("location") == 1:
-            
-                if domain != "acme.pt":
-                    KSR.info("===== Blocked because user belongs to external domain [%s] =====\n" % domain)
-                    KSR.sl.send_reply(403, "Bloqueado porque o utilizador não pertence ao domínio acme.pt")
+            if test == "acme.pt":
+                if KSR.pv.get("$tu") == "sip:conferencia@acme.pt":
+                    KSR.info("ENTREI")
+                    KSR.pv.sets("$ru", "sip:conferencia@127.0.0.1:5090")
+                    #KSR.forward()
+                    KSR.tm.t_relay()
                     return 1
-            
-                KSR.info("=== Destination found. Fowarding the call [%s] =====\n" % domain)
-                KSR.tm.t_relay()
-                KSR.sl.send_reply(200, "Destino encontrado. A reencaminhar a chamada")
-                return 1  
+                
+                if KSR.registrar.lookup("location") == 1:
+                    KSR.info("=== Destination found. Fowarding the call [%s] =====\n" % test)
+                    KSR.tm.t_relay()
+                    KSR.sl.send_reply(200, "Destino encontrado. A reencaminhar a chamada")
+                    return 1
+            else:
+                KSR.info("===== Blocked because user belongs to external domain [%s] =====\n" % test)
+                KSR.sl.send_reply(403, "Bloqueado porque o utilizador não pertence ao domínio acme.pt")
+                return 1 
         
         else:
             KSR.info("===== Destination not found in location table =====\n")
