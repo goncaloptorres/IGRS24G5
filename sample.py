@@ -1,4 +1,3 @@
-## Kamailio - equivalent of routing blocks in Python
 import sys
 import Router.Logger as Logger
 import KSR as KSR
@@ -44,7 +43,6 @@ class kamailio:
             return 1
         else:
             KSR.info("===== Comparação Falhou: Endereco [%s], Esperado [acme.pt] =====\n" % domain)
-            KSR.sl.send_reply(403, "Utilizador não foi registado. Domínio inválido")
         
         # Valida utilizadores com PIN
         
