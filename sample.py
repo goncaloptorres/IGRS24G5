@@ -59,7 +59,7 @@ class kamailio:
         # Realiza chamadas entre utilizadores registados
         
         if KSR.is_INVITE():
-            test = KSR.pv.get("$td")
+            test = KSR.pv.get("$tu")
             KSR.info("Destino: " + (KSR.pv.get("$tu")))
             if test == "acme.pt":
                 if KSR.pv.get("$tu") == "sip:conferencia@acme.pt":
